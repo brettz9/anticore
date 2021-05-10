@@ -1,8 +1,12 @@
 import open from 'open';
+import cypressCodeCoverage from '@cypress/code-coverage/middleware/express.js';
+
 import app from './app.js'
 
 import './routes/home.js'
 import './routes/form.js'
+
+cypressCodeCoverage(app)
 
 const listener = app.listen(process.env.PORT, async () => {
   const {port} = listener.address();

@@ -19,6 +19,10 @@ module.exports = {
       }
     },
     {
+      files: 'demo/cypress/**',
+      extends: ['plugin:cypress/recommended']
+    },
+    {
       files: 'demo/public/**',
       env: {
         node: false,

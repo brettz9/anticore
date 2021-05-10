@@ -3,15 +3,25 @@
   "name": "hello-anticore-express",
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
-  "type": "module",
   "scripts": {
-    "open": "node app/server.js --open",
+    "instrument": "nyc instrument public public_instrumented",
+    "cypress": "PORT=56302 cypress open",
+    "open": "PORT=56302 nyc --silent node app/server.js --open --coverage",
     "start": "node app/server.js"
   },
   "dependencies": {
     "@lcf.vs/dom-engine": "^2.3.4",
     "express": "^4.17.1",
     "multer": "^1.4.2"
+  },
+  "nyc": {
+    "cache": false,
+    "excludeAfterRemap": true,
+    "reporter": [
+      "text",
+      "json-summary",
+      "lcov"
+    ]
   },
   "engines": {
     "node": ">=14.x"
@@ -26,6 +36,9 @@
     "express"
   ],
   "devDependencies": {
-    "open": "^7.4.2"
+    "@cypress/code-coverage": "^3.9.5",
+    "cypress": "^7.3.0",
+    "nyc": "^15.1.0",
+    "open": "^8.0.8"
   }
 }

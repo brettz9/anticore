@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://127.0.0.1:56302/",
+  "env": {
+    "codeCoverage": {
+      "url": "http://127.0.0.1:56302/__coverage__"
+    }
+  }
+}

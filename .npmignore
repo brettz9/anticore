@@ -1,2 +1,4 @@
 .idea
 node_modules
+demo/coverage
+demo/public_instrumented

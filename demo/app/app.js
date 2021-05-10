@@ -4,6 +4,8 @@ import multer from 'multer'
 const app = express()
 
 app.use(multer().array())
-app.use('/', express.static('public'))
+app.use('/', express.static(
+  process.argv.includes('--coverage') ? 'public_instrumented' : 'public'
+))
 
 export default app
